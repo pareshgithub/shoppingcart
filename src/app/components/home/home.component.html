@@ -1,3 +1,15 @@
-<p>
-  home works!
-</p>
+
+<div class="p-3 border mt-2">
+    <br>
+    <form>
+
+   
+    <p>What do you want to buy today - <input class="form-control" #itemname required ></p>
+    <p>How much do you want to buy today - <input class="form-control" #itemqty required></p>
+    <p>Price per Unit - <input class="form-control" #itemprice required></p>
+    <br>
+    <button class="btn btn-primary"
+    (click)="updateCart(itemname.value, itemqty.value, itemprice.value);">Update the shopping cart</button>
+</form>
+    <br>
+</div>

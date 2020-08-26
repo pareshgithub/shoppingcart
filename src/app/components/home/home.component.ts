@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { AddToCartService } from '../../services/addtocart.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('itemname') itemname: ElementRef;
+  @ViewChild('itemqty') itemqty: ElementRef;
+  @ViewChild('itemprice') itemprice: ElementRef;
 
-  constructor() { }
+  constructor(private addToCartServiceImpl : AddToCartService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
+
+  updateCart( name : string, quantity : number, price : any ){
+    this.addToCartServiceImpl.addToCart(name, quantity, price);
+    this.clearForm();
+  }
+
+  clearForm() {
+    this.itemname.nativeElement.value = '';
+    this.itemqty.nativeElement.value = '';
+    this.itemprice.nativeElement.value = '';
+  }
+
 
 }
