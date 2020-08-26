@@ -1,8 +1,5 @@
 
-<div class="p-3 border mt-2">
-    <br>
-    <form>
-
+<div class="p-3 border">
    
     <p>What do you want to buy today - <input class="form-control" #itemname required ></p>
     <p>How much do you want to buy today - <input class="form-control" #itemqty required></p>
@@ -10,6 +7,5 @@
     <br>
     <button class="btn btn-primary"
     (click)="updateCart(itemname.value, itemqty.value, itemprice.value);">Update the shopping cart</button>
-</form>
     <br>
 </div>
