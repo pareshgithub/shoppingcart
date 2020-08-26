@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+
 import { CartItem } from '../model/cart-item';
 
 @Injectable({
@@ -21,6 +22,7 @@ export class AddToCartService {
   public removeCartItem(index: number) {
     if (this.cartItems[index]) {
       this.cartItems.splice(index, 1);
+      this.updateTotal();
     }
   }
 
